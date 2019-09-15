@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="coolEngine" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/coolEngine" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/coolEngine" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="E:/Program Files (x86)/SDL2-2.0.9/i686-w64-mingw32/include" />
+		</Compiler>
+		<Linker>
+			<Add library="mingw32" />
+			<Add library="SDL2main" />
+			<Add library="SDL2.dll" />
+			<Add library="user32" />
+			<Add library="gdi32" />
+			<Add library="winmm" />
+			<Add library="dxguid" />
+			<Add directory="E:/Program Files (x86)/SDL2-2.0.9/i686-w64-mingw32/lib" />
+		</Linker>
+		<ExtraCommands>
+			<Add after="XCOPY $(#sdl2)\bin\*.dll $(TARGET_OUTPUT_DIR) /D /Y" />
+		</ExtraCommands>
+		<Unit filename="assets.cc" />
+		<Unit filename="assets.h" />
+		<Unit filename="config.h" />
+		<Unit filename="coolEngine.h" />
+		<Unit filename="game.cc" />
+		<Unit filename="game.h" />
+		<Unit filename="objects.h" />
+		<Unit filename="objects/node.cc" />
+		<Unit filename="objects/sprite.cc" />
+		<Unit filename="renderer.cc" />
+		<Unit filename="renderer.h" />
+		<Unit filename="timer.cc" />
+		<Unit filename="timer.h" />
+		<Unit filename="util/colour.h" />
+		<Unit filename="util/vector.h" />
+		<Unit filename="window.cpp" />
+		<Unit filename="window.h" />
+		<Unit filename="x_test1.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
