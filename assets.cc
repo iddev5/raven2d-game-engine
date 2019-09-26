@@ -12,7 +12,8 @@ namespace cool {
         SDL_Texture *tex;
         SDL_Surface *image;
 
-        image = SDL_LoadBMP(path.c_str());
+        //image = SDL_LoadBMP(path.c_str());
+        image = IMG_Load(path.c_str());
 
         if(image != NULL) {
             tex = SDL_CreateTextureFromSurface(renderer.rRenderer, image);

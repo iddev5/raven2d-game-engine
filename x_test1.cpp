@@ -29,6 +29,7 @@ public:
 
     bool atStep() override {
 
+
         //renderer.clear(rand() % 255, rand() % 255, rand() % 255);
 
         window.setTitle("SDL Game Engine: FPS: " + std::to_string(getFramerate()));
@@ -46,10 +47,10 @@ public:
 
         //std::cout << "OldTime: " << OldTime << " , NewTime: " << NewTime << std::endl;
         //std::cout << "Timer: " << thisTime.getTimeElapsed() << std::endl;
-        //spr.x = 320-(spr.scaleX/2);
-        //spr.y = 240-(spr.scaleY/2);
+        spr.x = 320-(spr.scaleX/2);
+        spr.y = 240-(spr.scaleY/2);
         //spr.rotate(1);
-        //spr.update(renderer.rRenderer);
+        spr.update(renderer.rRenderer);
 
         return true;
     }

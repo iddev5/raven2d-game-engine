@@ -18,6 +18,14 @@ namespace cool {
 			printf("Couldn't initialise: %s\n", SDL_GetError());
 			return false;
 		}
+
+		//Initialize PNG loading
+        int imgFlags = IMG_INIT_PNG;
+        if(!(IMG_Init(imgFlags)&imgFlags)) {
+            printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError() );
+            return false;
+        }
+
 		asset.setRenderer(renderer);
 
 		return true;
@@ -36,6 +44,7 @@ namespace cool {
         //#endif
 	    renderer.quit();
 		window.quit();
+		IMG_Quit();
 		SDL_Quit();
 	}
 
