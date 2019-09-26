@@ -2,13 +2,13 @@
 
 namespace cool {
 	Sprite::Sprite(std::string name, int xp, int yp):
-		Node::Node(name, xp, yp), texture(NULL)
+		GameObject::GameObject(name, xp, yp), texture(NULL)
     {
-        Node::type = "sprite";
+        GameObject::type = "sprite";
     }
 
 	Sprite::Sprite(std::string name, cool::Vector2i pv):
-		Node::Node(name, pv.x, pv.y), texture(NULL) { }
+		GameObject::GameObject(name, pv.x, pv.y), texture(NULL) { }
 
     Sprite::~Sprite() { onDestroy(); }
 
@@ -18,24 +18,24 @@ namespace cool {
 		if(texture != NULL)
 			SDL_QueryTexture(texture, NULL, NULL, &x, &y);
 
-        Node::scaleX = x;
-        Node::scaleY = y;
+        GameObject::scaleX = x;
+        GameObject::scaleY = y;
 	}
 
     void Sprite::onStep(SDL_Renderer *renderer) {
 		if(changed) {
 			if(texture != NULL)
 				SDL_QueryTexture(texture, NULL, NULL,
-					(int*)Node::scaleX, (int*)Node::scaleY);
+					(int*)GameObject::scaleX, (int*)GameObject::scaleY);
 			changed = false;
 		}
 
-        rfp = Node::flipHoriz ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE|
-              Node::flipVert  ? SDL_FLIP_VERTICAL   : SDL_FLIP_NONE;
+        rfp = GameObject::flipHoriz ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE|
+              GameObject::flipVert  ? SDL_FLIP_VERTICAL   : SDL_FLIP_NONE;
 
-        dst = { Node::x, Node::y, Node::scaleX, Node::scaleY };
+        dst = { GameObject::x, GameObject::y, GameObject::scaleX, GameObject::scaleY };
 
-        SDL_RenderCopyEx(renderer, texture, NULL, &dst, Node::angle, NULL, rfp);
+        SDL_RenderCopyEx(renderer, texture, NULL, &dst, GameObject::angle, NULL, rfp);
 	}
 
     void Sprite::onDestroy() {
@@ -43,13 +43,13 @@ namespace cool {
 	}
 
 	void Sprite::update(SDL_Renderer *renderer) {
-        if(!Node::isPaused) {
-			if(Node::firstUpdate) {
+        if(!GameObject::isPaused) {
+			if(GameObject::firstUpdate) {
 				onCreate();
 				firstUpdate = false;
 			}
 			onStep(renderer);
-			//if(Node::child != nullptr) child->update();
+			//if(GameObject::child != nullptr) child->update();
 		}
     }
 

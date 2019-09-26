@@ -155,7 +155,7 @@ namespace cool {
     }
 
     // Objects
-    void Renderer::updateSpriteObject(cool::Node *obj) {
+    void Renderer::updateSpriteObject(cool::GameObject *obj) {
         obj->update(rRenderer);
     }
 

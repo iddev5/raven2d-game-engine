@@ -13,11 +13,11 @@ namespace cool {
 		vertical
 	};
 
-	class Node {
+	class GameObject {
 	public:
-		Node(std::string namev, int xv=0, int yv=0);
-		Node(std::string namev, cool::Vector2i pv={0,0});
-		virtual ~Node();
+		GameObject(std::string namev, int xv=0, int yv=0);
+		GameObject(std::string namev, cool::Vector2i pv={0,0});
+		virtual ~GameObject();
 
 		void pause();
 		void resume();
@@ -47,10 +47,10 @@ namespace cool {
         bool flipHoriz;
         bool firstUpdate;
         bool isPaused;
-        cool::Node *child;
+        cool::GameObject *child;
 	};
 
-	class Sprite: public cool::Node {
+	class Sprite: public cool::GameObject {
 	public:
         Sprite(std::string name, int xv, int yv);
 		Sprite(std::string name, cool::Vector2i pv);
@@ -71,7 +71,7 @@ namespace cool {
         SDL_RendererFlip rfp;
 	};
 	/*
-	class AnimatedSprite: public cool::Node {
+	class AnimatedSprite: public cool::GameObject {
 	public:
 		AnimatedSprite(std::string namev, int xv, int yv);
 		AnimatedSprite(std::string namev, cool::Vector2i pv);
@@ -105,6 +105,6 @@ namespace cool {
 
 }
 
-//typedef std::shared_ptr<cool::Node> NodeRef;
+//typedef std::shared_ptr<cool::GameObject> GameObjectRef;
 
 #endif

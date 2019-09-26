@@ -5,7 +5,7 @@ cool::Sprite spr("spr", 10, 10);
 cool::Timer thisTime;
 int i = 1;
 real OldTime, NewTime;
-//static SDL_Texture *tex = NULL;
+//SDL_Texture *tex = NULL;
 
 class crowbar: public cool::Game {
 public:

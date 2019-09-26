@@ -9,7 +9,7 @@
 
 namespace cool {
 
-    class Node;
+    class GameObject;
 	class Renderer {
     public:
         bool create(SDL_Window *window);
@@ -31,7 +31,7 @@ namespace cool {
         bool drawBorderedCircle(int x, int y, int radius, const cool::Colour &c1, const cool::Colour &c2);
         bool drawTexture(int x, int y, SDL_Texture *tex);
 
-        void updateSpriteObject(cool::Node *obj);
+        void updateSpriteObject(cool::GameObject *obj);
 
 	public:
 		static SDL_Renderer *rRenderer;

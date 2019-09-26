@@ -1,18 +1,18 @@
 #include "../objects.h"
 
 namespace cool {
-	Node::Node(std::string namev, int xv, int yv):
+	GameObject::GameObject(std::string namev, int xv, int yv):
 		name(namev), type("node"), x(xv), y(yv), firstUpdate(true), isPaused(false) { }
 
-	Node::Node(std::string namev, cool::Vector2i pv):
+	GameObject::GameObject(std::string namev, cool::Vector2i pv):
 		name(namev), x(pv.x), y(pv.y), firstUpdate(true), isPaused(false) { }
 
-	Node::~Node() { }
+	GameObject::~GameObject() { }
 
-	void Node::pause()  { isPaused = true;  }
-	void Node::resume() { isPaused = false; }
+	void GameObject::pause()  { isPaused = true;  }
+	void GameObject::resume() { isPaused = false; }
 
-	void Node::move(int xv, int yv) {
+	void GameObject::move(int xv, int yv) {
 		if(!isPaused) {
 			x += xv;
 			y += yv;
@@ -23,7 +23,7 @@ namespace cool {
 		}
 	}
 
-	void Node::reorder(int zv) {
+	void GameObject::reorder(int zv) {
 		if(!isPaused) {
 			zOrder += zv;
 			if(child != nullptr)
@@ -31,7 +31,7 @@ namespace cool {
 		}
 	}
 
-	void Node::scale(int sxv, int syv) {
+	void GameObject::scale(int sxv, int syv) {
 		if(!isPaused) {
 			scaleX += sxv;
 			scaleY += syv;
@@ -42,14 +42,14 @@ namespace cool {
 		}
 	}
 
-	void Node::rotate(short av) {
+	void GameObject::rotate(short av) {
 		if(!isPaused) {
 			angle += av;
 			if(child != nullptr) child->angle += av;
 		}
 	}
 
-	void Node::flip(int fv) {
+	void GameObject::flip(int fv) {
 		if(!isPaused) {
 			(fv == 0 ? flipHoriz = true :
 			(fv == 1 ? flipVert = true:
@@ -63,11 +63,11 @@ namespace cool {
 		}
 	}
 
-	bool Node::isFlipped(int fv) {
+	bool GameObject::isFlipped(int fv) {
 		return (fv == 0 ? flipHoriz : (fv == 1 ? flipVert : 0));
 	}
 
-	void Node::update(SDL_Renderer *renderer) {
+	void GameObject::update(SDL_Renderer *renderer) {
 		if(!isPaused) {
 			if(firstUpdate) {
 				onCreate();

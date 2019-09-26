@@ -5,10 +5,10 @@
 namespace cool {
 	
 	AnimatedSprite::AnimatedSprite(std::string namev, int xv, int yv):
-		Node::Node(namev, xv, yv) { }
+		GameObject::GameObject(namev, xv, yv) { }
 	
 	AnimatedSprite::AnimatedSprite(std::string namev, cool::Vector2i pv) {
-		Node::Node(namev, pv.x, pv.y) { }
+		GameObject::GameObject(namev, pv.x, pv.y) { }
 	}
 	
 	~AnimatedSprite::AnimatedSprite() { }

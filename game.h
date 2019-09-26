@@ -11,7 +11,7 @@ namespace cool {
 
     class Window;
     class Renderer;
-    class Node;
+    class GameObject;
     class Sprite;
 
 	class Game {
