@@ -28,4 +28,20 @@ typedef unsigned long ulong;
 typedef float real;
 typedef double breal;
 
+namespace raven2d {
+    inline bool Error(std::string str) {
+        printf("[ERROR] %s\n", str.c_str());
+        return false;
+    }
+
+    inline void Warn(std::string str) {
+        printf("[WARNING] %s\n", str.c_str());
+    }
+
+    inline std::string toCCString(const char *cstr) {
+        std::string s(cstr);
+        return s;
+    }
+}
+
 #endif

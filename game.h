@@ -45,7 +45,7 @@ namespace cool {
 
     private:
         real fpsAvg;
-        bool init(int flags = SDL_INIT_VIDEO);
+        bool init();
         int framerateLimit;
 
 	};

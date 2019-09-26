@@ -10,20 +10,23 @@ namespace cool {
         quit();
     }
 
-	// Initialization command
-	bool Game::init(int flags) {
+	/* Initialization command */
+	bool Game::init() {
 
         srand(time(NULL));
+        int flags = SDL_INIT_VIDEO;
 		if(SDL_Init(flags) != 0) {
-			printf("Couldn't initialise: %s\n", SDL_GetError());
-			return false;
+			//printf("[ERROR] Couldn't initialize: %s\n", SDL_GetError());
+			//return false;
+			raven2d::Error("Could not initialize SDL: " + raven2d::toCCString(SDL_GetError()));
 		}
 
-		//Initialize PNG loading
-        int imgFlags = IMG_INIT_PNG;
-        if(!(IMG_Init(imgFlags)&imgFlags)) {
-            printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError() );
-            return false;
+		/* Initialize PNG loading */
+        int imgflags = IMG_INIT_PNG | IMG_INIT_JPG | IMG_INIT_TIF;
+        if(!(IMG_Init(imgflags)&imgflags)) {
+            //printf("[ERROR] Could not initialize SDL_image: %s\n", IMG_GetError());
+            //return false;
+            raven2d::Error("Could not initialize SDL_image: " + raven2d::toCCString(IMG_GetError()));
         }
 
 		asset.setRenderer(renderer);
@@ -40,7 +43,7 @@ namespace cool {
 	void Game::quit() {
 		atDestroy();
         //#if defined(COOLDEBUG)
-            printf("coolEngine exit call: cool::Game::quit\n");
+            printf("raven2d exit call: raven2d::Game.quit()\n");
         //#endif
 	    renderer.quit();
 		window.quit();

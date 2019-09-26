@@ -20,11 +20,11 @@ namespace cool {
             SDL_FreeSurface(image);
 
             if(tex == NULL) {
-                printf("Cannot create texture\n");
+                raven2d::Warn("Cannot create texture of image: " + name;
             }
         }
         else {
-            printf("Cannot load image: %s\n", path.c_str());
+            raven2d::Warn("Cannot load image: " + path.c_str() + " : " + IMG_GetError());
             loadTexture(name, "no_image.bmp");
         }
         textures[name] = tex;
@@ -32,7 +32,7 @@ namespace cool {
 
     SDL_Texture* AssetManager::getTexture(std::string name) {
         if(textures.empty()) {
-            printf("texture array is empty\n");
+            raven2d::Warn("Texture Array is empty");
             return NULL;
         }
         return textures[name];
