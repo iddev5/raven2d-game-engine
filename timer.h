@@ -3,7 +3,7 @@
 
 #include "config.h"
 
-namespace cool {
+namespace raven2d {
 
     void Wait(int ms);
 

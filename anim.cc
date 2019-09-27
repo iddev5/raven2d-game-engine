@@ -2,7 +2,7 @@
 
 #include "anim.h"
 
-namespace cool {
+namespace raven2d {
 	
 	Frame::Frame(std::string namev, SDL_Texture *tex):
 		name(namev), texture(tex) { }
@@ -43,7 +43,7 @@ namespace cool {
 
 	Animation::~Animation() { }
 	
-	cool::Frame *Animation::getFrame(std::string frameName) {
+	raven2d::Frame *Animation::getFrame(std::string frameName) {
 		for(size_t i = 0; i < frames.size(); i++)
 			if(frames[i]->name == frameName) return frames[i];
 	}
@@ -56,7 +56,7 @@ namespace cool {
 		time = td;
 	}
 	
-	void Animation::addFrame(cool::Frame *frame) {
+	void Animation::addFrame(raven2d::Frame *frame) {
 		frames.append(frame);
 	}
 	

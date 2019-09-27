@@ -16,7 +16,7 @@ namespace {
             SDL_free(base_path);
         }
         else {
-            printf("coolEngine: SDL: Cannot get base path.\n");
+            printf("raven2dEngine: SDL: Cannot get base path.\n");
             return "";
         }
 
@@ -30,7 +30,7 @@ namespace {
     }
 }
 */
-namespace cool {
+namespace raven2d {
     class AssetManager {
         public:
             AssetManager();
@@ -40,13 +40,13 @@ namespace cool {
             SDL_Texture* getTexture(std::string name);
 
         public:
-            void setRenderer(cool::Renderer &ren);
+            void setRenderer(raven2d::Renderer &ren);
 
         protected:
             std::map<std::string, SDL_Texture*> textures;
 
         private:
-            cool::Renderer renderer;
+            raven2d::Renderer renderer;
 
     };
 }

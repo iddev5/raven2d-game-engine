@@ -1,10 +1,10 @@
 #include "../objects.h"
 
-namespace cool {
+namespace raven2d {
 	GameObject::GameObject(std::string namev, int xv, int yv):
 		name(namev), type("node"), x(xv), y(yv), firstUpdate(true), isPaused(false) { }
 
-	GameObject::GameObject(std::string namev, cool::Vector2i pv):
+	GameObject::GameObject(std::string namev, raven2d::Vector2i pv):
 		name(namev), x(pv.x), y(pv.y), firstUpdate(true), isPaused(false) { }
 
 	GameObject::~GameObject() { }

@@ -1,6 +1,6 @@
 #include "window.h"
 
-namespace cool {
+namespace raven2d {
 
     SDL_Window *Window::rWindow = NULL;
 
@@ -30,8 +30,8 @@ namespace cool {
         SDL_DestroyWindow(rWindow);
     }
 
-    cool::Vector2u Window::getMode() {
-        cool::Vector2u i(width, height);
+    raven2d::Vector2u Window::getMode() {
+        raven2d::Vector2u i(width, height);
         //SDL_GetWindowSize(rWindow, (int*)&i.x, (int*)&i.y);
         return i;
     }

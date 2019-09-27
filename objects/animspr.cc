@@ -2,18 +2,18 @@
 
 #include "objects.h"
 
-namespace cool {
+namespace raven2d {
 	
 	AnimatedSprite::AnimatedSprite(std::string namev, int xv, int yv):
 		GameObject::GameObject(namev, xv, yv) { }
 	
-	AnimatedSprite::AnimatedSprite(std::string namev, cool::Vector2i pv) {
+	AnimatedSprite::AnimatedSprite(std::string namev, raven2d::Vector2i pv) {
 		GameObject::GameObject(namev, pv.x, pv.y) { }
 	}
 	
 	~AnimatedSprite::AnimatedSprite() { }
 		
-	cool::Animation AnimatedSprite::getAnimation(std::string animName) {
+	raven2d::Animation AnimatedSprite::getAnimation(std::string animName) {
 		for(size_t i = 0; i < animations.size(); i++)
 			if(animations[i]->name == animName) return animations[i];
 	}
@@ -27,7 +27,7 @@ namespace cool {
 		return animations[id]->name;
 	}
 	
-	void AnimatedSprite::addAnimation(cool::Animation *anim) {
+	void AnimatedSprite::addAnimation(raven2d::Animation *anim) {
 		animations.append(anim);
 	}
 		

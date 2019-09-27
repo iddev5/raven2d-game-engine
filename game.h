@@ -7,7 +7,7 @@
 #include "assets.h"
 #include "timer.h"
 
-namespace cool {
+namespace raven2d {
 
     class Window;
     class Renderer;
@@ -34,9 +34,9 @@ namespace cool {
         void start();
 
     public:
-        cool::Renderer renderer;
-        cool::Window   window;
-        cool::AssetManager asset;
+        raven2d::Renderer renderer;
+        raven2d::Window   window;
+        raven2d::AssetManager asset;
 
         bool isRunning;
         bool isFirstFrame;

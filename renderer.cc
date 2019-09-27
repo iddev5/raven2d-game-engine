@@ -1,6 +1,6 @@
 #include "renderer.h"
 
-namespace cool {
+namespace raven2d {
 
     SDL_Renderer *Renderer::rRenderer = NULL;
 
@@ -30,7 +30,7 @@ namespace cool {
         return true;
     }
 
-    bool Renderer::clear(const cool::Colour &colour) {
+    bool Renderer::clear(const raven2d::Colour &colour) {
         if(clear(colour.r, colour.g, colour.b) == false) return false;
         return true;
     }
@@ -41,7 +41,7 @@ namespace cool {
 
     /* DRAWING FUNCTIONS */
     // Point
-    bool Renderer::drawPoint(int x, int y, const cool::Colour &c) {
+    bool Renderer::drawPoint(int x, int y, const raven2d::Colour &c) {
         priv_setColour(c);
         if(SDL_RenderDrawPoint(rRenderer, x, y) != 0) return false;
         return true;
@@ -49,14 +49,14 @@ namespace cool {
     }
 
     // Line
-    bool Renderer::drawLine(int x1, int y1, int x2, int y2, const cool::Colour &c) {
+    bool Renderer::drawLine(int x1, int y1, int x2, int y2, const raven2d::Colour &c) {
         priv_setColour(c);
         if(SDL_RenderDrawLine(rRenderer ,x1, y1, x2, y2) != 0) return false;
         return true;
     }
 
     // Rectangle
-    bool Renderer::drawRect(int x, int y, int w, int h, const cool::Colour &c) {
+    bool Renderer::drawRect(int x, int y, int w, int h, const raven2d::Colour &c) {
         priv_initRectSettings(x, y, w, h, c);
         SDL_Rect i = {x, y, w, h};
 
@@ -66,7 +66,7 @@ namespace cool {
 
     }
 
-    bool Renderer::drawFilledRect(int x, int y, int w, int h, const cool::Colour &c) {
+    bool Renderer::drawFilledRect(int x, int y, int w, int h, const raven2d::Colour &c) {
         priv_initRectSettings(x, y, w, h, c);
         SDL_Rect i = {x, y, w, h};
 
@@ -75,7 +75,7 @@ namespace cool {
         return true;
     }
 
-    bool Renderer::drawBorderedRect(int x, int y, int w, int h, const cool::Colour &c1, const cool::Colour &c2) {
+    bool Renderer::drawBorderedRect(int x, int y, int w, int h, const raven2d::Colour &c1, const raven2d::Colour &c2) {
         bool result = false;
         result |= drawFilledRect(x, y, w, h, c1);
         result |= drawRect(x, y, w, h, c2);
@@ -83,7 +83,7 @@ namespace cool {
     }
 
     // Circles
-    bool Renderer::drawCircle(int x, int y, int radius, const cool::Colour &c) {
+    bool Renderer::drawCircle(int x, int y, int radius, const raven2d::Colour &c) {
 		int x0 = 0;
 		int y0 = radius;
 		int d = 3 - 2 * radius;
@@ -106,7 +106,7 @@ namespace cool {
 		return true;
 	}
 
-	bool Renderer::drawFilledCircle(int x, int y, int radius, const cool::Colour &c) {
+	bool Renderer::drawFilledCircle(int x, int y, int radius, const raven2d::Colour &c) {
 		// Taken from wikipedia
 		int x0 = 0;
 		int y0 = radius;
@@ -133,7 +133,7 @@ namespace cool {
 		return true;
 	}
 
-	bool Renderer::drawBorderedCircle(int x, int y, int radius, const cool::Colour &c1, const cool::Colour &c2) {
+	bool Renderer::drawBorderedCircle(int x, int y, int radius, const raven2d::Colour &c1, const raven2d::Colour &c2) {
         bool result = false;
         result |= drawFilledCircle(x, y, radius, c1);
         result |= drawCircle(x, y, radius, c2);
@@ -155,17 +155,17 @@ namespace cool {
     }
 
     // Objects
-    void Renderer::updateSpriteObject(cool::GameObject *obj) {
+    void Renderer::updateSpriteObject(raven2d::GameObject *obj) {
         obj->update(rRenderer);
     }
 
     /* PRIVATE FUNCTIONS */
-    bool Renderer::priv_setColour(const cool::Colour &col) {
+    bool Renderer::priv_setColour(const raven2d::Colour &col) {
         if(SDL_SetRenderDrawColor(rRenderer, col.r, col.g, col.b, col.a) != 0) return false;
         return true;
     }
 
-    void Renderer::priv_initRectSettings(int x, int y, int w, int h, const cool::Colour &c) {
+    void Renderer::priv_initRectSettings(int x, int y, int w, int h, const raven2d::Colour &c) {
 
         /* Test for special case - horizontal line, vertical line, point */
         if(w==0) {

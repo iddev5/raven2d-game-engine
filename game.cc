@@ -1,6 +1,6 @@
 #include "game.h"
 
-namespace cool {
+namespace raven2d {
 
     Game::Game(): isRunning(true), isFirstFrame(true) {
         init();
@@ -77,8 +77,8 @@ namespace cool {
 
 	void Game::start() {
 
-	    cool::Timer fpsTimer;
-	    cool::Timer frmTimer;
+	    raven2d::Timer fpsTimer;
+	    raven2d::Timer frmTimer;
 
 		SDL_Event event;
 
@@ -114,7 +114,7 @@ namespace cool {
 			//std::cout << "frm Ticks: " << frmTicks << " , ticksPerFrame: " << ticksPerFrame << std::endl;
 
 			if(frmTicks < ticksPerFrame)
-                cool::Wait(ticksPerFrame - frmTicks);
+                raven2d::Wait(ticksPerFrame - frmTicks);
 
             //std::cout << "Delaying time: " << ticksPerFrame - frmTicks << std::endl;
 		}

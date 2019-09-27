@@ -1,13 +1,12 @@
 #define COOLDEBUG
-#include "coolEngine.h"
+#include "raven2dEngine.h"
 
-cool::Sprite spr("spr", 10, 10);
-cool::Timer thisTime;
+raven2d::Sprite spr("spr", 10, 10);
+raven2d::Timer thisTime;
 int i = 1;
 real OldTime, NewTime;
-//SDL_Texture *tex = NULL;
 
-class crowbar: public cool::Game {
+class crowbar: public raven2d::Game {
 public:
     crowbar() {
         AppName = "sdl game engine";
@@ -42,8 +41,8 @@ public:
         }
 
         renderer.clear(255, 255, 255);
-        renderer.drawBorderedRect(10, 10, 30, 40, cool::ColourList::Orange, cool::ColourList::Black);
-        //renderer.drawBorderedCircle(200, 200, 100, cool::ColourList::Cyan, cool::ColourList::Black);
+        renderer.drawBorderedRect(10, 10, 30, 40, raven2d::ColourList::Orange, raven2d::ColourList::Black);
+        //renderer.drawBorderedCircle(200, 200, 100, raven2d::ColourList::Cyan, raven2d::ColourList::Black);
 
         //std::cout << "OldTime: " << OldTime << " , NewTime: " << NewTime << std::endl;
         //std::cout << "Timer: " << thisTime.getTimeElapsed() << std::endl;

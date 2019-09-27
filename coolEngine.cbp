@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="coolEngine" />
+		<Option title="raven2dEngine" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/coolEngine" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/raven2dEngine" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/coolEngine" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/raven2dEngine" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="0" />
 				<Option compiler="gcc" />
@@ -49,7 +49,7 @@
 		<Unit filename="assets.cc" />
 		<Unit filename="assets.h" />
 		<Unit filename="config.h" />
-		<Unit filename="coolEngine.h" />
+		<Unit filename="raven2dEngine.h" />
 		<Unit filename="game.cc" />
 		<Unit filename="game.h" />
 		<Unit filename="objects.h" />

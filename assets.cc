@@ -1,6 +1,6 @@
 #include "assets.h"
 
-namespace cool {
+namespace raven2d {
 
     AssetManager::AssetManager() {}
 
@@ -20,11 +20,11 @@ namespace cool {
             SDL_FreeSurface(image);
 
             if(tex == NULL) {
-                raven2d::Warn("Cannot create texture of image: " + name;
+                raven2d::Warn("Cannot create texture of image: " + name);
             }
         }
         else {
-            raven2d::Warn("Cannot load image: " + path.c_str() + " : " + IMG_GetError());
+            raven2d::Warn("Cannot load image: " + path + " : " + raven2d::toCCString(IMG_GetError()));
             loadTexture(name, "no_image.bmp");
         }
         textures[name] = tex;
@@ -38,7 +38,7 @@ namespace cool {
         return textures[name];
     }
 
-    void AssetManager::setRenderer(cool::Renderer &ren) {
+    void AssetManager::setRenderer(raven2d::Renderer &ren) {
         renderer = ren;
     }
 }

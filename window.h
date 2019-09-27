@@ -4,7 +4,7 @@
 #include "config.h"
 #include "util/vector.h"
 
-namespace cool {
+namespace raven2d {
 
     //typedef SDL_Window WindowRaw;
     //using WindowRaw = SDL_Window;
@@ -14,9 +14,9 @@ namespace cool {
             Window();
             virtual ~Window();
 
-            bool create(int w = 640, int h = 480, std::string t = "coolEngine Game");
+            bool create(int w = 640, int h = 480, std::string t = "raven2dEngine Game");
 
-            cool::Vector2u getMode();
+            raven2d::Vector2u getMode();
             void setMode(int w = 640, int h = 480);
             void setTitle(std::string title);
             bool setFullscreen(bool td);

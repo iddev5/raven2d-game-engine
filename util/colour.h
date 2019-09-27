@@ -1,7 +1,7 @@
 #ifndef COOL_RR_UTIL_COLOUR
 #define COOL_RR_UTIL_COLOUR
 
-namespace cool {
+namespace raven2d {
     class Colour {
     public:
         Colour() { }
@@ -9,14 +9,14 @@ namespace cool {
         Colour(uint rv, uint gv, uint bv, uint av = 255):
             r(rv), g(gv), b(bv), a(av) { }
 
-        Colour(const cool::Colour &colour):
+        Colour(const raven2d::Colour &colour):
             r(colour.r), g(colour.g), b(colour.b), a(colour.a) { }
 
         uint r, g, b, a;
     };
 
     namespace ColourList {
-        static const cool::Colour
+        static const raven2d::Colour
             White(255, 255, 255), Black(0, 0, 0), Blank(0, 0, 0, 0),
             Grey (192, 192, 192), DarkGrey (128, 128, 128),
 		    Red  (255, 0, 0),     DarkRed  (128, 0, 0),

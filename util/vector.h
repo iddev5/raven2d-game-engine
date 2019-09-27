@@ -3,13 +3,13 @@
 
 #include "../config.h"
 
-namespace cool {
+namespace raven2d {
 
     template <typename T>
     class Vector2 {
     public:
         Vector2(T xp=0, T yp=0): x(xp), y(xp) { }
-        Vector2(const cool::Vector2<T> &vec):
+        Vector2(const raven2d::Vector2<T> &vec):
             x(vec.x), y(vec.y) { }
 
         T x, y;

@@ -1,13 +1,13 @@
 #include "../objects.h"
 
-namespace cool {
+namespace raven2d {
 	Sprite::Sprite(std::string name, int xp, int yp):
 		GameObject::GameObject(name, xp, yp), texture(NULL)
     {
         GameObject::type = "sprite";
     }
 
-	Sprite::Sprite(std::string name, cool::Vector2i pv):
+	Sprite::Sprite(std::string name, raven2d::Vector2i pv):
 		GameObject::GameObject(name, pv.x, pv.y), texture(NULL) { }
 
     Sprite::~Sprite() { onDestroy(); }

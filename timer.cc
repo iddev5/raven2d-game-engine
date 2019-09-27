@@ -1,6 +1,6 @@
 #include "timer.h"
 
-namespace cool {
+namespace raven2d {
 
     void Wait(int ms) {
         /* The reason SDL_Delay() is used instead of Sleep()

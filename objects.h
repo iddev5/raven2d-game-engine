@@ -6,7 +6,7 @@
 #include "util/colour.h"
 #include "util/vector.h"
 
-namespace cool {
+namespace raven2d {
 
 	enum flip {
 		horizontal,
@@ -16,7 +16,7 @@ namespace cool {
 	class GameObject {
 	public:
 		GameObject(std::string namev, int xv=0, int yv=0);
-		GameObject(std::string namev, cool::Vector2i pv={0,0});
+		GameObject(std::string namev, raven2d::Vector2i pv={0,0});
 		virtual ~GameObject();
 
 		void pause();
@@ -47,13 +47,13 @@ namespace cool {
         bool flipHoriz;
         bool firstUpdate;
         bool isPaused;
-        cool::GameObject *child;
+        raven2d::GameObject *child;
 	};
 
-	class Sprite: public cool::GameObject {
+	class Sprite: public raven2d::GameObject {
 	public:
         Sprite(std::string name, int xv, int yv);
-		Sprite(std::string name, cool::Vector2i pv);
+		Sprite(std::string name, raven2d::Vector2i pv);
         virtual ~Sprite();
 
 		// METHODS
@@ -71,20 +71,20 @@ namespace cool {
         SDL_RendererFlip rfp;
 	};
 	/*
-	class AnimatedSprite: public cool::GameObject {
+	class AnimatedSprite: public raven2d::GameObject {
 	public:
 		AnimatedSprite(std::string namev, int xv, int yv);
-		AnimatedSprite(std::string namev, cool::Vector2i pv);
+		AnimatedSprite(std::string namev, raven2d::Vector2i pv);
 		virtual ~AnimatedSprite();
 
-		cool::Animation getAnimation(std::string animName);
+		raven2d::Animation getAnimation(std::string animName);
 		size_t getAnimationID(std::string animName);
 		std::string getAnimationName(size_t id);
 
 		void setCurrentAnimation(std::string animName);
 		void setCurrentAnimation(size_t id);
 
-		void addAnimation(cool::Animation *anim);
+		void addAnimation(raven2d::Animation *anim);
 
 		virtual void onCreate();
 		virtual void onStep();
@@ -92,7 +92,7 @@ namespace cool {
 		virtual void update() = 0;
 
 	protected:
-		std::vector<cool::Animation> animations;
+		std::vector<raven2d::Animation> animations;
 		size_t currentAnimation;
 
 	private:
@@ -105,6 +105,6 @@ namespace cool {
 
 }
 
-//typedef std::shared_ptr<cool::GameObject> GameObjectRef;
+//typedef std::shared_ptr<raven2d::GameObject> GameObjectRef;
 
 #endif

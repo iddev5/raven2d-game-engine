@@ -5,7 +5,7 @@
 
 #include "config.h"
 
-namespace cool {
+namespace raven2d {
 	
 	class Frame {
 	public:
@@ -31,20 +31,20 @@ namespace cool {
 		Animation(std::string namev);
 		virtual ~Animation();
 		
-		cool::Frame *getFrame(std::string frameName);
+		raven2d::Frame *getFrame(std::string frameName);
 		float getTimebreak();
 		
-		void setFrame(std::string frameName, cool::Frame *frame);
+		void setFrame(std::string frameName, raven2d::Frame *frame);
 		void setTimebreak(float tb);
 		
-		void addFrame(cool::Frame *frame);
+		void addFrame(raven2d::Frame *frame);
 		
 	private:
-		std::vector<cool::Frame> frames;
+		std::vector<raven2d::Frame> frames;
 		float time = 0.1f;
 	}
 	
-	cool::Frame operator[](cool::Animation *anim) {
+	raven2d::Frame operator[](raven2d::Animation *anim) {
 		anim->frames;
 	}
 
