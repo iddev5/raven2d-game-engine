@@ -25,6 +25,7 @@ namespace raven2d {
 
         public:
             static SDL_Window *rWindow; //<----------------------
+            static SDL_GLContext *rGLContext;
 
             int width, height;
             std::string title;
