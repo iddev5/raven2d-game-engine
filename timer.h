@@ -19,6 +19,7 @@ namespace raven2d {
             void unpause();
 
             //Gets the timer's time
+            real getTimeElapsedMS();
             real getTimeElapsed();
 
             //Checks the status of the timer

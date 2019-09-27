@@ -49,21 +49,19 @@ namespace raven2d {
         }
     }
 
-    real Timer::getTimeElapsed() {
-        real time = 0;
+    real Timer::getTimeElapsedMS() {
+        real time = 0.0f;
 
-        if( mRunning ) {
-            if( mPaused ) {
-                //Return the number of ticks when the timer was paused
-                time = mPausedTicks;
-            }
-            else {
-                //Return the current time minus the start time
-                time = SDL_GetTicks() - mStartTicks;
-            }
+        if(mRunning) {
+            if(mPaused) time = mPausedTicks;
+            else time = SDL_GetTicks() - mStartTicks;
         }
 
-        return time/1000.0f;
+        return time;
+    }
+
+    real Timer::getTimeElapsed() {
+        return (getTimeElapsedMS()/1000.0f);
     }
 
     bool Timer::isRunning() {
