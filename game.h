@@ -4,6 +4,7 @@
 #include "config.h"
 #include "window.h"
 #include "renderer.h"
+#include "settings.h"
 #include "assets.h"
 #include "timer.h"
 
@@ -11,6 +12,7 @@ namespace raven2d {
 
     class Window;
     class Renderer;
+    class Settings;
     class GameObject;
     class Sprite;
 
@@ -23,10 +25,6 @@ namespace raven2d {
         void create(int w = 640, int h = 480);
         void quit();
 
-        void setFramerateLimit(int frames);
-        int  getFramerateLimit();
-        real getFramerate();
-
         virtual bool atBegining();
         virtual bool atStep();
         virtual bool atDestroy();
@@ -34,8 +32,9 @@ namespace raven2d {
         void start();
 
     public:
-        raven2d::Renderer renderer;
         raven2d::Window   window;
+        raven2d::Settings settings;
+        raven2d::Renderer renderer;
         raven2d::AssetManager asset;
 
         bool isRunning;
@@ -44,10 +43,7 @@ namespace raven2d {
         std::string AppName;
 
     private:
-        real fpsAvg;
         bool init();
-        int framerateLimit;
-
 	};
 
 }

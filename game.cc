@@ -51,17 +51,6 @@ namespace raven2d {
 		SDL_Quit();
 	}
 
-    void Game::setFramerateLimit(int frames) {
-        framerateLimit = frames;
-    }
-
-    int  Game::getFramerateLimit() {
-        return framerateLimit;
-    }
-
-    real Game::getFramerate() {
-        return fpsAvg;
-    }
 
 	bool Game::atBegining() {
 		return false;
@@ -91,8 +80,8 @@ namespace raven2d {
             SDL_PollEvent(&event);
 			if(event.type == SDL_QUIT) isRunning = false;
 
-            fpsAvg = frames/fpsTimer.getTimeElapsed();
-			if(fpsAvg > 20000) fpsAvg = 0.0f;
+            settings.fpsAvg = frames/fpsTimer.getTimeElapsed();
+			if(settings.fpsAvg > 20000) settings.fpsAvg = 0.0f;
 
 			//std::cout << "Average FPS: " << fpsAvg << std::endl;
 
@@ -109,7 +98,7 @@ namespace raven2d {
 			frames++;
 
 			int frmTicks = frmTimer.getTimeElapsed()*1000;
-			int ticksPerFrame = 1000/getFramerateLimit();
+			int ticksPerFrame = 1000/settings.getFramerateLimit();
 
 			//std::cout << "frm Ticks: " << frmTicks << " , ticksPerFrame: " << ticksPerFrame << std::endl;
 

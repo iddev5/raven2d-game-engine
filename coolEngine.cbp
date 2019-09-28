@@ -49,14 +49,16 @@
 		<Unit filename="assets.cc" />
 		<Unit filename="assets.h" />
 		<Unit filename="config.h" />
-		<Unit filename="raven2dEngine.h" />
 		<Unit filename="game.cc" />
 		<Unit filename="game.h" />
 		<Unit filename="objects.h" />
 		<Unit filename="objects/gameobj.cc" />
 		<Unit filename="objects/sprite.cc" />
+		<Unit filename="raven2dEngine.h" />
 		<Unit filename="renderer.cc" />
 		<Unit filename="renderer.h" />
+		<Unit filename="settings.cpp" />
+		<Unit filename="settings.h" />
 		<Unit filename="timer.cc" />
 		<Unit filename="timer.h" />
 		<Unit filename="util/colour.h" />

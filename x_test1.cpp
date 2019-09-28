@@ -10,7 +10,8 @@ class crowbar: public raven2d::Game {
 public:
     crowbar() {
         AppName = "sdl game engine";
-        setFramerateLimit(60);
+        //setFramerateLimit(60);
+        settings.setFramerateLimit(60);
     }
 
     bool atBegining() override {
@@ -31,7 +32,7 @@ public:
 
         //renderer.clear(rand() % 255, rand() % 255, rand() % 255);
 
-        window.setTitle("SDL Game Engine: FPS: " + std::to_string(getFramerate()));
+        window.setTitle("SDL Game Engine: FPS: " + std::to_string(settings.getFramerate()));
 
         NewTime = thisTime.getTimeElapsed();
         if(OldTime <= (NewTime-2)) {
