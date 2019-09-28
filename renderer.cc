@@ -6,6 +6,7 @@ namespace raven2d {
 
     bool Renderer::create(SDL_Window *window) {
         SDL_SetHint(SDL_HINT_RENDER_DRIVER, "opengl");
+
         rRenderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
         if(rRenderer == NULL) {
             printf("Cannot create renderer: %s", SDL_GetError());

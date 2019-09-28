@@ -17,5 +17,13 @@ namespace raven2d {
         return fpsAvg;
     }
 
+    void Settings::enableVSync(bool dec) {
+        if(dec) SDL_GL_SetSwapInterval(1);
+        else    SDL_GL_SetSwapInterval(0);
+    }
+
+    int  Settings::getVSyncStatus() {
+        return SDL_GL_GetSwapInterval();
+    }
 
 }

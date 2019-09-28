@@ -10,8 +10,8 @@ class crowbar: public raven2d::Game {
 public:
     crowbar() {
         AppName = "sdl game engine";
-        //setFramerateLimit(60);
         settings.setFramerateLimit(60);
+
     }
 
     bool atBegining() override {
@@ -29,9 +29,6 @@ public:
 
     bool atStep() override {
 
-
-        //renderer.clear(rand() % 255, rand() % 255, rand() % 255);
-
         window.setTitle("SDL Game Engine: FPS: " + std::to_string(settings.getFramerate()));
 
         NewTime = thisTime.getTimeElapsed();
@@ -43,10 +40,8 @@ public:
 
         renderer.clear(255, 255, 255);
         renderer.drawBorderedRect(10, 10, 30, 40, raven2d::ColourList::Orange, raven2d::ColourList::Black);
-        //renderer.drawBorderedCircle(200, 200, 100, raven2d::ColourList::Cyan, raven2d::ColourList::Black);
+        renderer.drawBorderedCircle(200, 200, 25, raven2d::ColourList::Cyan, raven2d::ColourList::Black);
 
-        //std::cout << "OldTime: " << OldTime << " , NewTime: " << NewTime << std::endl;
-        //std::cout << "Timer: " << thisTime.getTimeElapsed() << std::endl;
         spr.x = 320-(spr.scaleX/2);
         spr.y = 240-(spr.scaleY/2);
         //spr.rotate(1);

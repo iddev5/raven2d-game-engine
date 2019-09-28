@@ -15,6 +15,9 @@ namespace raven2d {
             int  getFramerateLimit();
             real getFramerate();
 
+            void enableVSync(bool dec);
+            int  getVSyncStatus();
+
             real fpsAvg;
             int  framerateLimit;
 

@@ -13,6 +13,8 @@ namespace raven2d {
     }
 
     bool Window::create(int w, int h, std::string t) {
+        SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+
         rWindow = SDL_CreateWindow(t.c_str(),
             SDL_WINDOWPOS_UNDEFINED,
             SDL_WINDOWPOS_UNDEFINED,
@@ -42,7 +44,6 @@ namespace raven2d {
 
     raven2d::Vector2u Window::getMode() {
         raven2d::Vector2u i(width, height);
-        //SDL_GetWindowSize(rWindow, (int*)&i.x, (int*)&i.y);
         return i;
     }
 
